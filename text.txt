@@ -1,0 +1,3 @@
+log in
+submit verse, name, mozna pozdeji najit pic podle name v DB_STR, vysvetleni, oznacit cast textu
+rating vsech submit posts
