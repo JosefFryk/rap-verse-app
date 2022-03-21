@@ -6,7 +6,7 @@ module.exports = {
     getVerse: async (req, res) => {
         console.log(req.user)
         try{
-            const verseItem = await Verse.find()
+            const verseItem = await Verse.find({microsoftId: req.user.microsoftId})
             const nameItem = await Name.find()
             res.render('verse.ejs', {verses: verseItem, name: nameItem, user: req.user})
         }catch (err){
