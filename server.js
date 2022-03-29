@@ -8,9 +8,11 @@ const connectDB = require('./config/database')
 const authRoutes = require('./routes/auth')
 const homeRoutes = require('./routes/home')
 const verseRoutes = require('./routes/add-verse')
+const flash = require('express-flash')
 
 require('dotenv').config({path: './config/.env'})
 require('./config/passport')(passport)
+
 connectDB()
 
 app.set('view engine', 'ejs')
@@ -27,9 +29,11 @@ app.use(
     })
   )
 
-  
+  //passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(flash())
 
 app.use('/', homeRoutes)
 app.use('/auth', authRoutes)

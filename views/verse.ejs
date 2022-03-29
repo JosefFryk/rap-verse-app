@@ -10,8 +10,9 @@
 <body>
     <h1>Top Verses</h1>
     <ul>
-    <% verse.forEach( el => { %>
+    <% verses.forEach( el => { %>
             <li class='verseItem' data-id='<%=el._id%>'>
+                <span class='nameItem'><%= el.name %></span>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                 <span class='del'> Delete </span>
             </li>

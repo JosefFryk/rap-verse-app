@@ -28,12 +28,12 @@ module.exports = function (passport) {
       async (accessToken, refreshToken, profile, done) => {
         console.log('auth: ', profile)
         const newUser = {
-          microsoftId: profile.oid,
+          userId: profile.oid,
           displayName: profile.displayName,
         }
 
         try {
-          let user = await User.findOne({ microsoftId: profile.oid })
+          let user = await User.findOne({ userId: profile.oid })
 
           if (user) {
             done(null, user)
