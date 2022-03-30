@@ -9,7 +9,7 @@ const VerseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  microsoftId: {
+  userId: {
     type: String,
     required: true
   }
