@@ -6,8 +6,8 @@ module.exports = {
     getVerse: async (req, res) => {
         console.log(req.user)
         try{
-            const verseItem = await Verse.find({userId: req.user.userId})
-            const nameItem = await Verse.find({userId: req.user.userId})
+            const verseItem = await Verse.find({userId: req.user.id})
+            const nameItem = await Verse.find({userId: req.user.id})
             res.render('verse.ejs', {verses: verseItem, name: nameItem, user: req.user})
         }catch (err){
             console.log(err)
@@ -15,7 +15,7 @@ module.exports = {
     },
     createVerse : async(req,res) => {
         try{
-            await Verse.create({verse: req.body.verseItem, userId: req.user.userId, name: req.body.nameItem, })
+            await Verse.create({verse: req.body.verseItem, userId: req.user.id, name: req.body.nameItem, })
             console.log('Verse has been added')
             res.redirect('/add-verse')
         }catch (err){
