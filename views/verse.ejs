@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Top Verses</h1>
+    <h1>Rap-uniQverse</h1>
+    <h2><%= user.userName %>'s selection of top bars.</h2>
     <ul>
     <% verses.forEach( el => { %>
-            <li class='verseItem' data-id='<%=el._id%>'>
-                <span class='nameItem'><%= el.name %></span>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+            <li class='rapList' data-id='<%=el._id%>'>
+                <span class="nameItem"><%= el.name %></span>
+                <span class='verseItem'><%= el.verse %></span>
                 <span class='del'> Delete </span>
             </li>
     <% }) %>    
@@ -23,7 +24,7 @@
     <form action="/add-verse/createVerse" method='POST'>
         <input type="text" placeholder="Artist's name" name="nameItem">
         <input type="text" placeholder="Enter verse" name="verseItem">
-        <input type="submit">
+        <input type="submit" value="send">
     </form>
 
     <a href="../auth/logout">Logout</a>
