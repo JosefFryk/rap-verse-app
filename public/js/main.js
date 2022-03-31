@@ -12,7 +12,7 @@ Array.from(deleteBtn).forEach((el)=>{
 async function deleteVerse(){
     const verseId = this.parentNode.dataset.id
     try{
-        const response = await fetch('verse/deleteVerse', {
+        const response = await fetch('add-verse/deleteVerse', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
